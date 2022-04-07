@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tags
+  resources :cafes
   devise_for :users
  
   get 'dashboard', to: 'home#index'

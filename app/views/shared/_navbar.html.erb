@@ -1,8 +1,36 @@
-<% if user_signed_in? %>
-    <%= current_user.email %>
-        <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-        <%= link_to 'Account Settings', edit_user_registration_path %>
-<% else %>
-    <%= link_to 'Log In', new_user_session_path %>
-    <%= link_to 'Sign In', new_user_registration_path %>
-<% end %>
+<nav id="inicio" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between nv-perfomance">
+    <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag 'lattelogo.png', size: "40x40"%>
+    <% end %>
+    <h4>Cafe Finder<h4>
+    <button class="navbar-toggler my-dropdown" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse dropdown-content" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <% if user_signed_in? %>
+            <%= current_user.email %>
+                <li class="nav-item">
+                <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+                </li>
+                <li class="nav-item">
+                <%= link_to 'Account Settings', edit_user_registration_path %>
+                </li>
+            <% else %>
+                <li class="nav-item">
+                    <%= link_to 'Log In', new_user_session_path %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'Sign In', new_user_registration_path %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+

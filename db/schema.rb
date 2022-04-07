@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_31_235323) do
+ActiveRecord::Schema.define(version: 2022_04_06_023014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cafe_tags", force: :cascade do |t|
+    t.bigint "cafe_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cafe_id"], name: "index_cafe_tags_on_cafe_id"
+    t.index ["tag_id"], name: "index_cafe_tags_on_tag_id"
+  end
+
+  create_table "cafes", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "opening_hour"
+    t.integer "closing_hour"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cafes_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +57,7 @@ ActiveRecord::Schema.define(version: 2022_03_31_235323) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cafe_tags", "cafes"
+  add_foreign_key "cafe_tags", "tags"
+  add_foreign_key "cafes", "users"
 end
