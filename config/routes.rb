@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :tags
   resources :cafes
+  resources :users, except: [:create, :destroy]
   devise_for :users
  
   get 'dashboard', to: 'home#index'
