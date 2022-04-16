@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :cafes
+  validates :name, presence: true
 
   enum role: [ :Admin, :Member ]
   before_create :user_default

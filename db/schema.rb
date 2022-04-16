@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_13_000236) do
+ActiveRecord::Schema.define(version: 2022_04_16_230523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 2022_04_13_000236) do
     t.index ["user_id"], name: "index_cafes_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "content"
+    t.integer "rating"
+    t.bigint "cafe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cafe_id"], name: "index_reviews_on_cafe_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -88,4 +99,6 @@ ActiveRecord::Schema.define(version: 2022_04_13_000236) do
   add_foreign_key "cafe_tags", "cafes"
   add_foreign_key "cafe_tags", "tags"
   add_foreign_key "cafes", "users"
+  add_foreign_key "reviews", "cafes"
+  add_foreign_key "reviews", "users"
 end
