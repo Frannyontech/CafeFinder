@@ -21,10 +21,43 @@
   nav a, span {
     color: white !important;
     text-decoration: none !important;
+    width: fit-content;
+    
   }
-  
+
+  nav .btn-success {
+    background-color: #28a745 !important;
+  }
+
+  nav .btn-danger {
+    background-color: #dc3545 !important;
+  }
+
+  .btn-info {
+    border-color: steelblue !important;
+    background-color: steelblue !important;
+  }
+
   nav a:hover {
     color: aliceblue !important;
     background-color: inherit;
     text-decoration: underline !important;
   } 
+
+  .svg-icon {
+    fill: white;
+    width: 30px;
+    height: 30px
+  }
+  
+  .svg-icon:hover {
+    fill: gray;
+  }
+  
+  .svg-icon-body {
+    fill: gray;
+    width: 30px;
+    height: 30px;
+    background-color: inherit;
+  }
+  

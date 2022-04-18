@@ -29,7 +29,9 @@ gem 'devise'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rails-erd', group: :development
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
+
+gem 'nokogiri'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

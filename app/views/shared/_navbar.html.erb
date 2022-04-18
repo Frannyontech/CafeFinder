@@ -1,36 +1,36 @@
 <nav id="inicio" class="navbar navbar-expand-lg navbar-light justify-content-between nv-perfomance" style="background-color: #F29161;">
-    <%= link_to root_path, class: "navbar-brand d-flex" do %>
-        <%= image_tag 'lattelogo.png', size: "40x40"%>
+    <% if user_signed_in? %>
+        <%= link_to "Home", dashboard_index_path, class:"navbar-brand"  %>
+    <% else %>
+            <%= link_to root_path, class: "navbar-brand d-flex" do %>
+            <%= image_tag 'lattelogo.png', size: "40x40"%>
+        <% end %>    
     <% end %>
     
     <button class="navbar-toggler my-dropdown" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse dropdown-content" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <% if user_signed_in? %>
-            <%= current_user.email %>
-                <li class="nav-item">
-                <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-                </li>
-                <li class="nav-item">
-                <%= link_to 'Account Settings', edit_user_registration_path %>
-                </li>
-            <% else %>
-                <li class="nav-item">
-                    <%= link_to 'Log In', new_user_session_path %>
-                </li>
-                <li class="nav-item">
-                    <%= link_to 'Sign In', new_user_registration_path %>
-                </li>
-            <% end %>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto icons-navbar-mobile">
+            <li class="nav-item active">
+                <%= link_to 'My Reviews', reviews_path, class:"nav-link" if user_signed_in? %>
+            </li>
         </ul>
+        <span class="d-flex justify-content-end">
+            <ul class="navbar-nav mr-auto">
+                <% if user_signed_in? %>
+                    <%= link_to 'Ver mi perfil', user_path(current_user.id) %>
+                    <li class="item-navbar-mobile pr-3"><svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"/></svg>
+                    <%= "Mi Perfil: #{current_user.name}" %>
+                    </li>
+                    <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class:"btn btn-danger", style: "border: 1px gray" %></li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <% else %>
+                     <li class="nav-item active mr-2"><%= link_to "Iniciar sesión", new_user_session_path, class: "btn btn-success", style: "border: 1px gray" %></li>
+                <% end %>
+            </ul>
+        </span>
     </div>
 </nav>
-
-
-
-
-
-
-<%#  %>
