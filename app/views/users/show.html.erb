@@ -1,5 +1,0 @@
-<% if current_user.Admin? %>
-  <%= render 'show_admin', user: @user %>
-  <% else %>
-  <%= render 'show_member', user: @user %>
-<% end %>

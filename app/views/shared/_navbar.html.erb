@@ -1,6 +1,8 @@
 <nav id="inicio" class="navbar navbar-expand-lg navbar-light justify-content-between nv-perfomance" style="background-color: #F29161;">
     <% if user_signed_in? %>
-        <%= link_to "Home", dashboard_index_path, class:"navbar-brand"  %>
+        <%= link_to dashboard_index_path, class:"navbar-brand d-flex" do %>
+        <%= image_tag 'lattelogo.png', size: "40x40"%>
+        <% end %>
     <% else %>
             <%= link_to root_path, class: "navbar-brand d-flex" do %>
             <%= image_tag 'lattelogo.png', size: "40x40"%>
@@ -11,13 +13,19 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div class="collapse navbar-collapse dropdown-content" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto icons-navbar-mobile">
+            <li class="nav-item active">
+                <%= link_to 'Find Cafes', cafes_path, class:"nav-link" if user_signed_in? %>
+            </li>
             <li class="nav-item active">
                 <%= link_to 'My Reviews', reviews_path, class:"nav-link" if user_signed_in? %>
             </li>
+            <li class="nav-item active">
+                <%= link_to 'My Favorites', cafes_path, class:"nav-link" if user_signed_in? %>
+            </li>
         </ul>
-        <span class="d-flex justify-content-end">
+        <span>
             <ul class="navbar-nav mr-auto">
                 <% if user_signed_in? %>
                     <%= link_to 'Ver mi perfil', user_path(current_user.id) %>
@@ -28,7 +36,12 @@
             </ul>
             <ul class="navbar-nav mr-auto">
                 <% else %>
-                     <li class="nav-item active mr-2"><%= link_to "Iniciar sesión", new_user_session_path, class: "btn btn-success", style: "border: 1px gray" %></li>
+                    <li class="nav-item">
+                        <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+                    </li>
                 <% end %>
             </ul>
         </span>

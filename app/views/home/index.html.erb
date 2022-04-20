@@ -1,21 +1,45 @@
-<% if user_signed_in? %>
-  <% if @morning %>
-    <h1>Hola! <%= @morning_say %>, <%= current_user.name %></h1>
-    <% elsif @afternoon %>
-      <h1>Hola! <%= @afternoon_say %>, <%= current_user.name %></h1>
-    <% elsif @nigth %>
-      <h1>Hola! <%= @nigth_say %>, <%= current_user.name %></h1>
-  <% end %>
-<% else %>
-  <h1>¡Bienvenido a Cafe Finder y encuentra donde trabajar remoto!</h1>
 
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coffee" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <path d="M3 14c.83 .642 2.077 1.017 3.5 1c1.423 .017 2.67 -.358 3.5 -1c.83 -.642 2.077 -1.017 3.5 -1c1.423 -.017 2.67 .358 3.5 1" />
-        <path d="M8 3a2.4 2.4 0 0 0 -1 2a2.4 2.4 0 0 0 1 2" />
-        <path d="M12 3a2.4 2.4 0 0 0 -1 2a2.4 2.4 0 0 0 1 2" />
-        <path d="M3 10h14v5a6 6 0 0 1 -6 6h-2a6 6 0 0 1 -6 -6v-5z" />
-        <path d="M16.746 16.726a3 3 0 1 0 .252 -5.555" />
-    </svg>
+<div class="text-center mt-5">
+  <h1 class="display-4 font-weight-bold my-4">¡Bienvenido a Cafe Finder!</h1>
+  <h6>Trabaja remotamente con una taza de cafe nunca ha sido menos rutinario.</h6>
   <h6>Revisa qué cafeterías son amigables para tu trabajo y capuccino</h6>
-<% end %>
+  <%= image_tag 'cafecito.png', class: "img-fluid", alt: "logo-index", style: "max-width: 50%" %>
+</div>
+<hr id="section-1">
+<section id="que-es" class="container text-center my-5" style="background-color: white">
+  <h2 class="display-4 font-weight-bold my-4">¿Qué es Cafe Finder? </h2>
+  <h5 class="my-4">Cafe Finder es una aplicacion que te ayuda a revisar y encontrar cafeterías en tu cuidad (o donde sea que estes) desde donde puedas trabajar remotamente </h5>
+
+  <div style="font-size: large">
+    <p> </p>
+  </div>
+</section>
+<hr id="section-2">
+<section id="como-funciona" class="container text-center my-5" style="background-color: white; padding-botton: 1em;">
+  <h2 class="display-4 font-weight-bold my-4">¿Cómo funciona? 🤔</h2>
+  <h5 class="my-4">A traves de CoffeeFinder los usuarios podrán agregar sus recomendaciones de cafeterías. Si tienes una reunión, podrás ver cafeterias cercanas y cómodas</h5>
+  <div class="row">
+    <div class="col-md-4">
+      <%= render 'log' %>
+      <h3 class="my-3">1. Regístrate</h3>
+      <p class="my-3">Ten acceso al mapa y revisa que recomendaciones te darán otros usuarios. Puedes tambien crear tus propias reviews y guardar tus favoritos.</p>
+    </div>
+    <div class="col-md-4 mb-5">
+      <%= render 'save' %>
+      <h3 class="my-3">2. Guardado para despues </h3>
+      <p class="my-3">¿Tienes reunion mañana lejos de tu oficina/hogar?, ¿necesitas esperar y trabajar remotamente?, puedes revisar que cafeterias hay cerca de la ubicación de tu reunion y guardarla en tus favoritos.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="far fa-map fa-3x my-3"></i>
+      <%= render 'review' %>
+      <h3 class="my-3">3. Revisa tus Reviews</h3>
+      <p class="my-3">Tu también puedes agregar cafeterías en <b>Cafe Finder</b> donde otros usuarios podrán ver y guardar tus reviews. Adicionalmente podrás acceder a estadisticas ....</p>
+    </div>
+  </div>
+</section>
+
+<div style="text-align: end; font-size: 5em;"><a style="background-color: transparent; text-decoration: none" href="#inicio">🔝</a></div>
+<%# 
+<button data-tf-popup="mqv9IAOs" data-tf-iframe-props="title=Cafe Finder" data-tf-medium="snippet" style="all:unset;font-family:Helvetica,Arial,sans-serif;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-color:#0445AF;color:#FFFFFF;font-size:20px;border-radius:25px;padding:0 33px;font-weight:bold;height:50px;cursor:pointer;line-height:50px;text-align:center;margin:0;text-decoration:none;">¡Pruébame!</button><script src="//embed.typeform.com/next/embed.js"></script> %>
+
+
