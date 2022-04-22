@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # }
  # cancelar edición del current_user sin recargar página
   get 'users/:id/cancel', to: 'users#cancel_editing', as: 'cancel'
+  get '/maps', to: 'maps#show'
+  get '/cafes', to: 'cafes#index'
   root to: 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

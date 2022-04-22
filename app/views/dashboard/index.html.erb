@@ -13,24 +13,22 @@
     </div>
 </div>
 <h3 class="cards-header">How does Cafe Finder work?</h3>
-<div class="d-flex flex-row flex-nowrap overflow-auto home-page-cards">
+<div class="d-flex flex-row flex-nowrap overflow-auto card">
   <div class="card card-block mx-2 my-card">
-    <%= link_to cafes_path, class:"nav-link" if user_signed_in? %>
     <%= image_tag "undraw_location.svg", alt: "location img" %>
     <p>Share Cafés to other users</p>
   </div>
   <div class="card card-block mx-2 my-card">
-    <%= link_to reviews_path, class:"nav-link" if user_signed_in? %>
+    
     <%= image_tag "undraw_browse.svg", alt: "scroll img" %>
     <p>Write your opinion</p>
   </div>
   <div class="card card-block mx-2 my-card">
-    <%= link_to cafes_path, class:"nav-link" if user_signed_in? %>
-    <%= image_tag "undraw_working_remotely.svg", alt: "work img" %>
+    
+    <%= image_tag "undraw_add.svg", alt: "add img" %>
     <p>See what places you have added to favorites</p>
   </div>
   <div class="card card-block mx-2 my-card">
-    <%= link_to maps_path, class:"nav-link" if user_signed_in? %>
     <%= image_tag "undraw_working_remotely.svg", alt: "work img" %>
     <p>Browse Cafés in your location</p>
   </div>
